@@ -20,6 +20,17 @@ public class Client extends Frame{
         this.setResizable(false);
         this.setBackground(Color.CYAN);
         this.setVisible(true);
+        //移动线程
+        new Thread(()->{
+            while(true) {
+                repaint();
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     /**
@@ -48,6 +59,11 @@ public class Client extends Frame{
         public void run() {
             while(true) {
                 repaint();
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
